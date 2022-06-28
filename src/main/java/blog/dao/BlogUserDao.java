@@ -41,7 +41,7 @@ public class BlogUserDao implements BlogDao<BlogUser>{
 		try {
 			return action.apply("apply");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			closed();
 		}
@@ -81,7 +81,7 @@ public class BlogUserDao implements BlogDao<BlogUser>{
 	}
 	@Override
 	public int insert(BlogUser arg) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	@Override

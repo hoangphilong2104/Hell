@@ -43,6 +43,16 @@ public class BlogPost  implements Serializable {
 	// 읽은 횟수
 	private Integer views;
 
+	public BlogPost(int id, String title, String article) {
+		this.id = id;
+		this.title = title;
+		this.article = article;
+	}
+
+	public BlogPost() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -7,19 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import blog.entity.BlogAccount;
+import blog.service.BlogWebService;
+
 /**
- * Servlet implementation class user
+ * Servlet implementation class login
  */
-@WebServlet("/user")
-public class user extends HttpServlet {
+@WebServlet("/user/login")
+public class login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private BlogWebService ser;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public user() {
-        super();
-        // TODO Auto-generated constructor stub
+    public login() {
+        ser = new BlogWebService();
     }
 
 	/**
@@ -34,8 +36,10 @@ public class user extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		BlogAccount account = new BlogAccount(request.getParameter("username"),request.getParameter("password"), "");
+		if(account.getUsername()!=null&&account.getPassword()!=null) {
+			
+		}
 	}
 
 }

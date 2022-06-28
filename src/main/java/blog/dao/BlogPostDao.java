@@ -57,7 +57,7 @@ public class BlogPostDao implements BlogDao<BlogPost>{
 				pstmt.setInt(1, id);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
-					BlogPost post = new BlogPost();
+					BlogPost post = new BlogPost(rs.getInt("id"),rs.getString("title"),rs.getString("article"));
 					return post;
 				}
 			} catch (Exception e) {

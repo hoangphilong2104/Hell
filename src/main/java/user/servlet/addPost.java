@@ -29,7 +29,6 @@ public class addPost extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.getRequestDispatcher("/WEB-INF/views/addPost.jsp").forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
