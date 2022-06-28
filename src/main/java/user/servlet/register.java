@@ -28,6 +28,7 @@ public class register extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Register
 		request.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(request, response);
 	}
 
@@ -35,6 +36,7 @@ public class register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Process Register = true/false
 		BlogAccount account = new BlogAccount(request.getParameter("username"),request.getParameter("password"), request.getParameter("email"));
 		if(account.getUsername()!=null&&account.getPassword()!=null&&account.getEmail()!=null) {
 			if(ser.findAccount(account.getUsername())==null) {

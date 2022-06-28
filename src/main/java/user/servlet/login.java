@@ -28,7 +28,7 @@ public class login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Login
 		request.getRequestDispatcher("/WEB-INF/views/loginUser.jsp").forward(request, response);
 	}
 
@@ -36,6 +36,7 @@ public class login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//process Login = true/false
 		BlogAccount account = new BlogAccount(request.getParameter("username"),request.getParameter("password"), "");
 		if(account.getUsername()!=null&&account.getPassword()!=null) {
 			
