@@ -26,8 +26,7 @@ public class user extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/loginUser.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/users/menuUser.jsp").forward(request, response);
 	}
 
 	/**

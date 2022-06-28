@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,12 @@
 	</form><br>
 	<form action="/Hell/user/register"><input type="submit" value = "Register"></form>
 	<br>
-	
+	<br>
+		<c:set var = "istrue" value = "${istrue}"/>
+		<c:if test = "${istrue == 1}">
+		<c:out value = "Username or password is wrong!"/>
+		</c:if>
+
 	</ul>
 	
 </body>

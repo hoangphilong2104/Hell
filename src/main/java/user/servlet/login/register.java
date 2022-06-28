@@ -1,4 +1,4 @@
-package user.servlet;
+package user.servlet.login;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,16 +11,16 @@ import blog.entity.BlogAccount;
 import blog.service.BlogWebService;
 
 /**
- * Servlet implementation class login
+ * Servlet implementation class register
  */
-@WebServlet("/user/login")
-public class login extends HttpServlet {
+@WebServlet("/user/register")
+public class register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private BlogWebService ser;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public login() {
+    public register() {
         ser = new BlogWebService();
     }
 
@@ -28,18 +28,23 @@ public class login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Login
-		request.getRequestDispatcher("/WEB-INF/views/loginUser.jsp").forward(request, response);
+		//Register
+		request.getRequestDispatcher("/WEB-INF/views/users/login/register.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//process Login = true/false
-		BlogAccount account = new BlogAccount(request.getParameter("username"),request.getParameter("password"), "");
-		if(account.getUsername()!=null&&account.getPassword()!=null) {
-			
+		//Process Register = true/false
+		if(request.getParameter("username")!=null&&request.getParameter("password")!=null&& request.getParameter("email")!=null) {
+			BlogAccount account = new BlogAccount(request.getParameter("username"),request.getParameter("password"), request.getParameter("email"));
+			if(ser.findAccount(account.getUsername())==null) {
+				ser.addAccount(account);
+				request.getRequestDispatcher("/WEB-INF/views/users/login/registerSuscess.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("/WEB-INF/views/users/login/registerFaild.jsp").forward(request, response);
+			}	
 		}
 	}
 

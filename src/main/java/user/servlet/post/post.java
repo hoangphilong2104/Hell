@@ -1,4 +1,4 @@
-package user.servlet;
+package user.servlet.post;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class addPost
+ * Servlet implementation class post
  */
-@WebServlet("/user/post/add")
-public class addPost extends HttpServlet {
+@WebServlet("/user/post")
+public class post extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addPost() {
+    public post() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,15 +26,16 @@ public class addPost extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// add Post
-		request.getRequestDispatcher("/WEB-INF/views/addPost.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("/WEB-INF/views/users/post/post.jsp").forward(request, response);
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// process Post = true/false
-		request.getRequestDispatcher("/WEB-INF/views/test.jsp").forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

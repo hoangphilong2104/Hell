@@ -58,7 +58,7 @@ public class accountDao implements BlogDao<BlogAccount>{
 	public BlogAccount findOne(String username) {
 		return (BlogAccount)action((s)->{
 			try {
-				pstmt = conn.prepareStatement("select * from login where username = ?");
+				pstmt = conn.prepareStatement("select * from blog_account where username = ?");
 				pstmt.setString(1, username);
 				rs = pstmt.executeQuery();
 				while(rs.next()) {
@@ -74,7 +74,7 @@ public class accountDao implements BlogDao<BlogAccount>{
 	public BlogAccount findOne(String username,String password) {
 		return (BlogAccount)action((s)->{
 			try {
-				pstmt = conn.prepareStatement("select * from login where username = ? and password = ?");
+				pstmt = conn.prepareStatement("select * from blog_account where username = ? and password = ?");
 				pstmt.setString(1, username);
 				pstmt.setString(2, password);
 				rs = pstmt.executeQuery();
@@ -104,7 +104,7 @@ public class accountDao implements BlogDao<BlogAccount>{
 	public int insert(BlogAccount arg) {
 		connect();
 		try {
-			pstmt = conn.prepareStatement("insert into login (username,password,email) values (?,?,?)");
+			pstmt = conn.prepareStatement("insert into blog_account (username,password,email) values (?,?,?)");
 			pstmt.setString(1, arg.getUsername());
 			pstmt.setString(2, arg.getPassword());
 			pstmt.setString(3, arg.getEmail());

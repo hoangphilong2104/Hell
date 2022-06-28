@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>Register Faild</h1>
+	<p>username used</p>
 	<form action="/Hell/user/register" method = "get" >
 		<input type="submit" value = "Register Again">
 	</form><br>
