@@ -48,12 +48,13 @@ public class login extends HttpServlet {
 		if (request.getParameter("username") != null && request.getParameter("password") != null) {
 			BlogAccount account = new BlogAccount(request.getParameter("username"), request.getParameter("password"),
 					"");
-			if (ser.findAccount(account.getUsername(), account.getPassword()) == null) {
+//			if (ser.findAccount(account.getUsername(), account.getPassword()) == null) {
+			if (ser.getAccount(account.getUsername(), account.getPassword()) == null) {
 				int istrue = 1;
 				request.setAttribute("istrue", istrue);
 				request.getRequestDispatcher("/WEB-INF/views/users/login/loginUser.jsp").forward(request, response);
 			} else {
-				account = ser.findAccount(request.getParameter("username"), request.getParameter("password"));
+				account = ser.getAccountUsername(request.getParameter("username"));
 				request.setAttribute("email", account.getEmail());
 				request.getRequestDispatcher("/WEB-INF/views/users/login/loginSuscess.jsp").forward(request, response);
 			}

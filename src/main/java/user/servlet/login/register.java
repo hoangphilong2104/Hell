@@ -47,7 +47,8 @@ public class register extends HttpServlet {
 				&& request.getParameter("email") != null) {
 			BlogAccount account = new BlogAccount(request.getParameter("username"), request.getParameter("password"),
 					request.getParameter("email"));
-			if (ser.findAccount(account.getUsername()) == null) {
+//			if (ser.findAccount(account.getUsername()) == null) { //cach 1
+			if (ser.getAccountUsername(account.getUsername())==null) {
 				ser.addAccount(account);
 				request.getRequestDispatcher("/WEB-INF/views/users/login/registerSuscess.jsp").forward(request,
 						response);

@@ -4,7 +4,7 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="tutorial.blog.entity.BlogPost" alias="Post" />
+		<typeAlias type="blog.entity.BlogAccount" alias="Account" />
 	</typeAliases>
 	
 	<environments default="development">
@@ -20,6 +20,6 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="mybatis/mappers/blog-post.xml"/>
+		<mapper resource="mybatis/mappers/blog-account.xml"/>
 	</mappers>
 </configuration>

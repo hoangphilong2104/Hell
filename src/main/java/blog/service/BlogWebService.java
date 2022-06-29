@@ -23,13 +23,19 @@ public class BlogWebService extends BlogService {
 			accountdao.insert(account);
 		}
 	}
-
-	public BlogAccount findAccount(String username) {
-		return accountdao.findOne(username);
+	//cach1
+//	public BlogAccount findAccount(String username) {
+//		return accountdao.findOne(username);
+//	}
+//
+//	public BlogAccount findAccount(String username, String password) {
+//		return accountdao.findOne(username, password);
+//	}
+	//cach2
+	public BlogAccount getAccountUsername(String username) {
+		return accountdao.findUsername(username);
 	}
-
-	public BlogAccount findAccount(String username, String password) {
-		return accountdao.findOne(username, password);
+	public BlogAccount getAccount(String username, String password) {
+		return accountdao.findAccount(username, password);
 	}
-
 }
