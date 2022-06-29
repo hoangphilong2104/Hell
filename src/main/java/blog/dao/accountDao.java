@@ -199,3 +199,4 @@ public class accountDao implements BlogDao<BlogAccount> {
 //		return null;
 	}
 }
+//https://www.tutorialspoint.com/mybatis/mybatis_quick_guide.htm
