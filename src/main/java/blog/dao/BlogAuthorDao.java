@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 
 import blog.entity.BlogAuthor;
 
-public class BlogAuthorDao implements BlogDao<BlogAuthor>{
+public class BlogAuthorDao implements BlogDao<BlogAuthor> {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -22,8 +22,8 @@ public class BlogAuthorDao implements BlogDao<BlogAuthor>{
 		Context ctx;
 		try {
 			ctx = new InitialContext();
-			Context env = (Context)ctx.lookup("java:comp/env");
-			DataSource ds = (DataSource)env.lookup("jdbc/mysql");
+			Context env = (Context) ctx.lookup("java:comp/env");
+			DataSource ds = (DataSource) env.lookup("jdbc/mysql");
 			conn = ds.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -31,16 +31,21 @@ public class BlogAuthorDao implements BlogDao<BlogAuthor>{
 			e.printStackTrace();
 		}
 	}
+
 	private void closed() {
 		try {
-			if(rs!=null) rs.close();
-			if(pstmt!=null) pstmt.close();
-			if(conn!=null) conn.close();
-		}catch(Exception e) {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
+
 	@Override
 	public BlogAuthor findOne(int id) {
 		// TODO: select one by id
@@ -51,17 +56,17 @@ public class BlogAuthorDao implements BlogDao<BlogAuthor>{
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			BlogAuthor author = new BlogAuthor();
-			while(rs.next()) {
+			while (rs.next()) {
 				author.setId(rs.getInt("id"));
 				author.setFirstName(rs.getString("first_name"));
 				author.setLastName(rs.getString("last_name"));
 				author.setDisplayName(rs.getString("display_name"));
 			}
 			return author;
-		}catch(Exception e) {
-			
-		}finally {
-			closed();			
+		} catch (Exception e) {
+
+		} finally {
+			closed();
 		}
 		return null;
 	}
@@ -87,13 +92,13 @@ public class BlogAuthorDao implements BlogDao<BlogAuthor>{
 	@Override
 	public void update(BlogAuthor arg) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

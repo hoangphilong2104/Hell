@@ -5,104 +5,103 @@ import java.sql.Timestamp;
 //댓글 
 public class BlogComment {
 
- // 댓글 아이디 
- private Integer id;
+	// 댓글 아이디
+	private Integer id;
 
- // 게시글 아이디 
- private Integer postId;
+	// 게시글 아이디
+	private Integer postId;
 
- // 원본 댓글 아이디 
- private Integer isReplyToId;
+	// 원본 댓글 아이디
+	private Integer isReplyToId;
 
- // 댓글 내용 
- private String commentContent;
+	// 댓글 내용
+	private String commentContent;
 
- // 회원 아이디 비회원 댓글 가능
- private Integer userId;
+	// 회원 아이디 비회원 댓글 가능
+	private Integer userId;
 
- // 읽음 표시 
- private Boolean markRead;
+	// 읽음 표시
+	private Boolean markRead;
 
- // 활성화 여부 
- private Boolean enabled;
+	// 활성화 여부
+	private Boolean enabled;
 
- // 등록일 
- private Timestamp commentDate;
+	// 등록일
+	private Timestamp commentDate;
 
- public Integer getId() {
-     return id;
- }
+	public Integer getId() {
+		return id;
+	}
 
- public void setId(Integer id) {
-     this.id = id;
- }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
- public Integer getPostId() {
-     return postId;
- }
+	public Integer getPostId() {
+		return postId;
+	}
 
- public void setPostId(Integer postId) {
-     this.postId = postId;
- }
+	public void setPostId(Integer postId) {
+		this.postId = postId;
+	}
 
- public Integer getIsReplyToId() {
-     return isReplyToId;
- }
+	public Integer getIsReplyToId() {
+		return isReplyToId;
+	}
 
- public void setIsReplyToId(Integer isReplyToId) {
-     this.isReplyToId = isReplyToId;
- }
+	public void setIsReplyToId(Integer isReplyToId) {
+		this.isReplyToId = isReplyToId;
+	}
 
- public String getCommentContent() {
-     return commentContent;
- }
+	public String getCommentContent() {
+		return commentContent;
+	}
 
- public void setCommentContent(String commentContent) {
-     this.commentContent = commentContent;
- }
+	public void setCommentContent(String commentContent) {
+		this.commentContent = commentContent;
+	}
 
- public Integer getUserId() {
-     return userId;
- }
+	public Integer getUserId() {
+		return userId;
+	}
 
- public void setUserId(Integer userId) {
-     this.userId = userId;
- }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
- public Boolean getMarkRead() {
-     return markRead;
- }
+	public Boolean getMarkRead() {
+		return markRead;
+	}
 
- public void setMarkRead(Boolean markRead) {
-     this.markRead = markRead;
- }
+	public void setMarkRead(Boolean markRead) {
+		this.markRead = markRead;
+	}
 
- public Boolean getEnabled() {
-     return enabled;
- }
+	public Boolean getEnabled() {
+		return enabled;
+	}
 
- public void setEnabled(Boolean enabled) {
-     this.enabled = enabled;
- }
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
 
- public Timestamp getCommentDate() {
-     return commentDate;
- }
+	public Timestamp getCommentDate() {
+		return commentDate;
+	}
 
- public void setCommentDate(Timestamp commentDate) {
-     this.commentDate = commentDate;
- }
+	public void setCommentDate(Timestamp commentDate) {
+		this.commentDate = commentDate;
+	}
 
- // BlogComment 모델 복사
- public void CopyData(BlogComment param)
- {
-     this.id = param.getId();
-     this.postId = param.getPostId();
-     this.isReplyToId = param.getIsReplyToId();
-     this.commentContent = param.getCommentContent();
-     this.userId = param.getUserId();
-     this.markRead = param.getMarkRead();
-     this.enabled = param.getEnabled();
-     this.commentDate = param.getCommentDate();
- }
+	// BlogComment 모델 복사
+	public void CopyData(BlogComment param) {
+		this.id = param.getId();
+		this.postId = param.getPostId();
+		this.isReplyToId = param.getIsReplyToId();
+		this.commentContent = param.getCommentContent();
+		this.userId = param.getUserId();
+		this.markRead = param.getMarkRead();
+		this.enabled = param.getEnabled();
+		this.commentDate = param.getCommentDate();
+	}
 }

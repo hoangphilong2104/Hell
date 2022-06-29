@@ -8,51 +8,50 @@ package blog.entity;
 //회원 
 public class BlogUser {
 
- // 회원 아이디 
- private Integer userId;
+	// 회원 아이디
+	private Integer userId;
 
- // 회원 이름 
- private String name;
+	// 회원 이름
+	private String name;
 
- // 회원 이메일 
- private String email;
+	// 회원 이메일
+	private String email;
 
- public BlogUser(int userId, String name, String email) {
-	super();
-	this.userId = userId;
-	this.name = name;
-	this.email = email;
-}
+	public BlogUser(int userId, String name, String email) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+	}
 
-public Integer getUserId() {
-     return userId;
- }
+	public Integer getUserId() {
+		return userId;
+	}
 
- public void setUserId(Integer userId) {
-     this.userId = userId;
- }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
- public String getName() {
-     return name;
- }
+	public String getName() {
+		return name;
+	}
 
- public void setName(String name) {
-     this.name = name;
- }
+	public void setName(String name) {
+		this.name = name;
+	}
 
- public String getEmail() {
-     return email;
- }
+	public String getEmail() {
+		return email;
+	}
 
- public void setEmail(String email) {
-     this.email = email;
- }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
- // BlogUser 모델 복사
- public void CopyData(BlogUser param)
- {
-     this.userId = param.getUserId();
-     this.name = param.getName();
-     this.email = param.getEmail();
- }
+	// BlogUser 모델 복사
+	public void CopyData(BlogUser param) {
+		this.userId = param.getUserId();
+		this.name = param.getName();
+		this.email = param.getEmail();
+	}
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 //게시글 
-public class BlogPost  implements Serializable {
+public class BlogPost implements Serializable {
 	private static final long serialVersionUID = -1880873079573672341L;
 
 	// 게시글 아이디

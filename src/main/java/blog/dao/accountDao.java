@@ -13,29 +13,34 @@ import javax.sql.DataSource;
 
 import blog.entity.BlogAccount;
 
-public class accountDao implements BlogDao<BlogAccount>{
+public class accountDao implements BlogDao<BlogAccount> {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	private void connect() {
 		try {
 			Context ctx = new InitialContext();
-			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/mysql");
+			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/mysql");
 			conn = ds.getConnection();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	private void closed() {
 		try {
-			if(rs!=null) rs.close();
-			if(pstmt!=null) pstmt.close();
-			if(conn!=null) conn.close();
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	public Object action(Function<String, Object> action) {
 		connect();
 		try {
@@ -45,24 +50,26 @@ public class accountDao implements BlogDao<BlogAccount>{
 		} finally {
 			closed();
 		}
-		
+
 		return null;
-		
+
 	}
-	
+
 	@Override
 	public BlogAccount findOne(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	public BlogAccount findOne(String username) {
-		return (BlogAccount)action((s)->{
+		return (BlogAccount) action((s) -> {
 			try {
 				pstmt = conn.prepareStatement("select * from blog_account where username = ?");
 				pstmt.setString(1, username);
 				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					BlogAccount account = new BlogAccount(rs.getString("username"),rs.getString("password"),rs.getString("email"));
+				while (rs.next()) {
+					BlogAccount account = new BlogAccount(rs.getString("username"), rs.getString("password"),
+							rs.getString("email"));
 					return account;
 				}
 			} catch (SQLException e) {
@@ -71,15 +78,17 @@ public class accountDao implements BlogDao<BlogAccount>{
 			return null;
 		});
 	}
-	public BlogAccount findOne(String username,String password) {
-		return (BlogAccount)action((s)->{
+
+	public BlogAccount findOne(String username, String password) {
+		return (BlogAccount) action((s) -> {
 			try {
 				pstmt = conn.prepareStatement("select * from blog_account where username = ? and password = ?");
 				pstmt.setString(1, username);
 				pstmt.setString(2, password);
 				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					BlogAccount account = new BlogAccount(rs.getString("username"),rs.getString("password"),rs.getString("email"));
+				while (rs.next()) {
+					BlogAccount account = new BlogAccount(rs.getString("username"), rs.getString("password"),
+							rs.getString("email"));
 					return account;
 				}
 			} catch (SQLException e) {
@@ -88,6 +97,7 @@ public class accountDao implements BlogDao<BlogAccount>{
 			return null;
 		});
 	}
+
 	@Override
 	public List<BlogAccount> findAll() {
 		// TODO Auto-generated method stub
@@ -119,14 +129,12 @@ public class accountDao implements BlogDao<BlogAccount>{
 
 	@Override
 	public void update(BlogAccount arg) {
-		
-		
+
 	}
 
 	@Override
 	public void delete(int id) {
-		
-		
+
 	}
 
 }

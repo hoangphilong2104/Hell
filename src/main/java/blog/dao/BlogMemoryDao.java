@@ -108,7 +108,7 @@ public class BlogMemoryDao {
 
 		List<BlogCategory> list = new ArrayList<BlogCategory>();
 		for (BlogCategory category : categoryRepo) {
-			if (category.getName().contains(key) ) {
+			if (category.getName().contains(key)) {
 				list.add(category);
 			}
 		}
